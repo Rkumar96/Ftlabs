@@ -11,6 +11,12 @@ class Command(BaseCommand):
         choices = ["America/Los_Angeles","india/kolkata","india/ranchi","china/wuhan"]
 
         user_instance=User()
+        for x in range(1,instances):
+            instance = User.objects.create(
+               uid=self.sd.hex_chars(min_chars=9, max_chars=9),
+                real_name=self.sd.fullname(locale=None, as_list=False),
+                tz=self.sd.choice(choices),
+            )
 
         for outer_loop in range(1,instances):
             for inner_loop in range(3):
@@ -20,13 +26,6 @@ class Command(BaseCommand):
                     user = User.objects.get(id=outer_loop)
                     
                 )
-
-        for x in range(1,instances):
-            instance = User.objects.create(
-               uid=self.sd.hex_chars(min_chars=9, max_chars=9),
-                real_name=self.sd.fullname(locale=None, as_list=False),
-                tz=self.sd.choice(choices),
-            )
 
     def handle(self, *args, **options):
         print("Generating MyModel data")
