@@ -16,6 +16,7 @@ class Command(BaseCommand):
                uid=self.sd.hex_chars(min_chars=9, max_chars=9),
                 real_name=self.sd.fullname(locale=None, as_list=False),
                 tz=self.sd.choice(choices),
+                
             )
 
         for outer_loop in range(1,instances):
