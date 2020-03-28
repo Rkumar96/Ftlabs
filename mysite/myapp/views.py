@@ -19,14 +19,14 @@ def index(request):
 
 	return Response(api_urls)
 
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 def userList(request):
 	users = User.objects.all()
 	serializer = UserSerializer(users, many=True)
 	return Response(serializer.data)
 
-@api_view(['GET', 'POST'])
-def aList(request):
-	users = Activity_Periods.objects.all()
-	serializer = ASerializer(users, many=True)
+@api_view(['GET'])
+def userDetail(request,pk):
+	users = User.objects.get(id=pk)
+	serializer = UserSerializer(users, many=False)
 	return Response(serializer.data)
