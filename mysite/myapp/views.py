@@ -22,10 +22,8 @@ def index(request):
 @api_view(['GET', 'POST'])
 def userList(request):
 	users = User.objects.all()
-	activity_p = Activity_Periods.objects.all()
 	serializer = UserSerializer(users, many=True)
-	aserializer = ASerializer(activity_p,many=True)
-	return Response(serializer.data,aserializer.data)
+	return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
 def aList(request):
