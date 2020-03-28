@@ -17,6 +17,7 @@ class Command(BaseCommand):
                 activeity_period = Activity_Periods.objects.create(
                     start_time=self.sd.datetime(begin=-1440, end=1440),
                     end_time=self.sd.datetime(begin=-1440, end=1440),
+                    user = User.objects.get(id=outer_loop)
                     
                 )
 
@@ -25,7 +26,6 @@ class Command(BaseCommand):
                uid=self.sd.hex_chars(min_chars=9, max_chars=9),
                 real_name=self.sd.fullname(locale=None, as_list=False),
                 tz=self.sd.choice(choices),
-                activity_periods=Activity_Periods.objects.get(id=x)
             )
 
     def handle(self, *args, **options):
