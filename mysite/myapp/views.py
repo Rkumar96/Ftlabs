@@ -9,7 +9,7 @@ from .models import User,Activity_Periods
 # Create your views here.
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 def index(request):
 
 	api_urls = {

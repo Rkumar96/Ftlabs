@@ -8,7 +8,7 @@ class Command(BaseCommand):
     sd = SampleDataHelper(seed=12345678901)
 
     def generate_mymodel_data(self, instances):
-        choices = ["America/Los_Angeles","india/kolkata","india/ranchi","china/wuhan"]
+        choices = ["America/Los_Angeles","Belgium/Brussels","Cambodia/Phnom Penh","Denmark/Copenhagen","Fiji/Suva","India/Kolkata","India/Ranchi","China/Wuhan","Russia/Moscow"]
 
         user_instance=User()
         for x in range(1,instances):
@@ -30,4 +30,4 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         print("Generating MyModel data")
-        self.generate_mymodel_data(11)
+        self.generate_mymodel_data(51)
