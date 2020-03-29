@@ -1,7 +1,7 @@
 from django.db import models
 
 class User(models.Model):
-	"""docstring for User"""
+	"""user model which holds the user detail's"""
 	uid			= models.CharField(max_length=9)
 	tz 			= models.CharField(max_length=20)
 	real_name   = models.CharField(max_length=20)
@@ -16,7 +16,7 @@ class User(models.Model):
 	
 
 class Activity_Periods(models.Model):
-	"""docstring for Activity_Period"""
+	"""Activity_Period model which store the start and end time for each users"""
 	start_time = models.DateTimeField()
 	end_time   = models.DateTimeField()
 	user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)

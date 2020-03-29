@@ -6,3 +6,4 @@ pytz==2019.3
 sampledata==0.3.7
 six==1.14.0
 sqlparse==0.3.1
+Unipath==1.1
